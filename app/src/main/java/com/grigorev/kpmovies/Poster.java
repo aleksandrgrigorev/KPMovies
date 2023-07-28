@@ -1,5 +1,7 @@
 package com.grigorev.kpmovies;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Poster {
@@ -13,5 +15,13 @@ public class Poster {
 
     public Poster(String url) {
         this.url = url;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Poster{" +
+                "url=" + url + '\'' +
+                '}';
     }
 }

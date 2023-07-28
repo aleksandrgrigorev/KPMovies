@@ -1,5 +1,7 @@
 package com.grigorev.kpmovies;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -15,5 +17,11 @@ public class MovieResponse {
 
     public MovieResponse(List<Movie> movies) {
         this.movies = movies;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "MovieResponse{" + "movies=" + movies + '}';
     }
 }
