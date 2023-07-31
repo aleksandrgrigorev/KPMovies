@@ -1,5 +1,6 @@
 package com.grigorev.kpmovies;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -38,5 +39,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         moviesAdapter.setOnReachEndListener(() -> viewModel.loadMovies());
+        moviesAdapter.setOnItemClickListener(movie -> {
+            Intent intent = MovieDetailsActivity.newIntent(MainActivity.this, movie);
+            startActivity(intent);
+        });
     }
 }
