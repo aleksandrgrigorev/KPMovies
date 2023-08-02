@@ -23,8 +23,15 @@ public class MovieDetailsViewModel extends AndroidViewModel {
     private final MutableLiveData<List<Trailer>> trailers = new MutableLiveData<>();
     private final MutableLiveData<List<Review>> reviews = new MutableLiveData<>();
 
+    private final MoviesDao moviesDao;
+
     public MovieDetailsViewModel(@NonNull Application application) {
         super(application);
+        moviesDao = MoviesDatabase.getInstance(application).moviesDao();
+    }
+
+    public LiveData<Movie> getFavouriteMovie(int movieId) {
+        return moviesDao.getFavouriteMovie(movieId);
     }
 
     public LiveData<List<Trailer>> getTrailers() {
@@ -47,13 +54,33 @@ public class MovieDetailsViewModel extends AndroidViewModel {
         compositeDisposable.add(disposable);
     }
 
+    public void insertMovie(Movie movie) {
+        Disposable disposable = moviesDao.insertMovie(movie)
+                .subscribeOn(Schedulers.io())
+                .subscribe(
+                        () -> Log.d(TAG, "subscribe"),
+                        throwable -> Log.d(TAG, "Error insertMovie")
+                );
+        compositeDisposable.add(disposable);
+    }
+
+    public void removeMovie(int movieId) {
+        Disposable disposable = moviesDao.removeMovie(movieId)
+                .subscribeOn(Schedulers.io())
+                .subscribe(
+                        () -> Log.d(TAG, "subscribe"),
+                        throwable -> Log.d(TAG, "Error removeMovie")
+                );
+        compositeDisposable.add(disposable);
+    }
+
     public void loadTrailers(int id) {
         Disposable disposable = ApiFactory.apiService.loadTrailers(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(trailersResponse -> trailersResponse.getTrailersList().getTrailers())
                 .subscribe(
-                        trailersList -> trailers.setValue(trailersList),
+                        trailers::setValue,
                         throwable -> Log.d(TAG, throwable.toString())
                 );
         compositeDisposable.add(disposable);

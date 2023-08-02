@@ -2,12 +2,14 @@ package com.grigorev.kpmovies;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +30,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewReviews;
     private TrailersAdapter trailersAdapter;
     private ReviewsAdapter reviewsAdapter;
+    private ImageView imageViewFavourite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,27 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 reviews -> reviewsAdapter.setReviews(reviews)
         );
         viewModel.loadReviews(movie.getId());
+
+        Drawable favouriteOff = ContextCompat.getDrawable(
+                MovieDetailsActivity.this,
+                android.R.drawable.star_big_off
+        );
+        Drawable favouriteOn = ContextCompat.getDrawable(
+                MovieDetailsActivity.this,
+                android.R.drawable.star_big_on
+        );
+
+        viewModel.getFavouriteMovie(movie.getId()).observe(
+                this,
+                movieFromDb -> {
+                    if (movieFromDb == null) {
+                        imageViewFavourite.setImageDrawable(favouriteOff);
+                        imageViewFavourite.setOnClickListener(view -> viewModel.insertMovie(movie));
+                    } else {
+                        imageViewFavourite.setImageDrawable(favouriteOn);
+                        imageViewFavourite.setOnClickListener(view -> viewModel.removeMovie(movie.getId()));
+                    }
+                });
     }
 
     private void initViews() {
@@ -80,6 +104,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         textViewDescription = findViewById(R.id.textViewDescription);
         recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
         recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
+        imageViewFavourite = findViewById(R.id.imageViewFavourite);
     }
 
     public static Intent newIntent(Context context, Movie movie) {

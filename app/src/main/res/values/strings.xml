@@ -2,4 +2,5 @@
     <string name="app_name">KPMovies</string>
     <string name="movie_poster">Movie poster</string>
     <string name="poster">Poster</string>
+    <string name="favourite">Favourite</string>
 </resources>

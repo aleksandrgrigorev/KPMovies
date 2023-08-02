@@ -66,6 +66,17 @@
             app:layout_constraintTop_toBottomOf="@id/recyclerViewTrailers"
             tools:listitem="@layout/review_item" />
 
+        <ImageView
+            android:id="@+id/imageViewFavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+            app:layout_constraintEnd_toEndOf="@id/imageViewPoster"
+            app:layout_constraintTop_toBottomOf="@id/imageViewPoster"
+            tools:srcCompat="@android:drawable/btn_star_big_on"
+            android:contentDescription="@string/favourite" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
