@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.grigorev.kpmovies.viewmodel.MainViewModel;
+import com.grigorev.kpmovies.adapter.MoviesAdapter;
+import com.grigorev.kpmovies.R;
 
 public class MainActivity extends AppCompatActivity {
 

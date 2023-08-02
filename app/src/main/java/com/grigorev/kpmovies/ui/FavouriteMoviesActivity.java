@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.grigorev.kpmovies.viewmodel.FavouriteMoviesViewModel;
+import com.grigorev.kpmovies.adapter.MoviesAdapter;
+import com.grigorev.kpmovies.R;
 
 public class FavouriteMoviesActivity extends AppCompatActivity {
 
@@ -36,6 +40,4 @@ public class FavouriteMoviesActivity extends AppCompatActivity {
     public static Intent newIntent(Context context) {
         return new Intent(context, FavouriteMoviesActivity.class);
     }
-
-    ;
 }

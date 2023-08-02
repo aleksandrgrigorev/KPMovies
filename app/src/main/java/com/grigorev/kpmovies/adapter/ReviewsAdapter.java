@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.grigorev.kpmovies.R;
+import com.grigorev.kpmovies.dto.Review;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,8 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.api;
+
+import com.grigorev.kpmovies.dto.MovieResponse;
+import com.grigorev.kpmovies.dto.ReviewsResponse;
+import com.grigorev.kpmovies.dto.TrailersResponse;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.GET;

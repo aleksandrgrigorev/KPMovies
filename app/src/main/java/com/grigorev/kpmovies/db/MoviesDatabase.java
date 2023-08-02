@@ -1,10 +1,13 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.db;
 
 import android.app.Application;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.grigorev.kpmovies.dao.MoviesDao;
+import com.grigorev.kpmovies.dto.Movie;
 
 @Database(entities = {Movie.class}, version = 1, exportSchema = false)
 public abstract class MoviesDatabase extends RoomDatabase {
@@ -23,5 +26,5 @@ public abstract class MoviesDatabase extends RoomDatabase {
         return instance;
     }
 
-    abstract MoviesDao moviesDao();
+    public abstract MoviesDao moviesDao();
 }

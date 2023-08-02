@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.viewmodel;
 
 import android.app.Application;
 import android.util.Log;
@@ -7,6 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.grigorev.kpmovies.api.ApiFactory;
+import com.grigorev.kpmovies.dao.MoviesDao;
+import com.grigorev.kpmovies.db.MoviesDatabase;
+import com.grigorev.kpmovies.dto.Movie;
+import com.grigorev.kpmovies.dto.Review;
+import com.grigorev.kpmovies.dto.ReviewsResponse;
+import com.grigorev.kpmovies.dto.Trailer;
 
 import java.util.List;
 

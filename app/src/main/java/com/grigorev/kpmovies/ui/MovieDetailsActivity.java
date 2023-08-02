@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.grigorev.kpmovies.viewmodel.MovieDetailsViewModel;
+import com.grigorev.kpmovies.R;
+import com.grigorev.kpmovies.adapter.ReviewsAdapter;
+import com.grigorev.kpmovies.adapter.TrailersAdapter;
+import com.grigorev.kpmovies.dto.Movie;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.dto;
 
 import androidx.annotation.NonNull;
 import androidx.room.Embedded;

@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.adapter;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.grigorev.kpmovies.R;
+import com.grigorev.kpmovies.dto.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.List;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
 
     private List<Movie> movies = new ArrayList<>();
-    private  OnReachEndListener onReachEndListener;
+    private OnReachEndListener onReachEndListener;
     private OnItemClickListener onItemClickListener;
 
     public void setOnReachEndListener(OnReachEndListener onReachEndListener) {
@@ -89,11 +91,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         return movies.size();
     }
 
-    interface OnReachEndListener {
+    public interface OnReachEndListener {
         void onReachEnd();
     }
 
-    interface OnItemClickListener {
+    public interface OnItemClickListener {
         void onItemClick(Movie movie);
     }
 

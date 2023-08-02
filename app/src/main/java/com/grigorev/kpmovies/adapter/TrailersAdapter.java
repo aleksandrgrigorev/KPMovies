@@ -1,4 +1,4 @@
-package com.grigorev.kpmovies;
+package com.grigorev.kpmovies.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.grigorev.kpmovies.R;
+import com.grigorev.kpmovies.dto.Trailer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +55,7 @@ public class TrailersAdapter extends RecyclerView.Adapter<TrailersAdapter.Traile
         return trailers.size();
     }
 
-    interface OnTrailerClickListener {
+    public interface OnTrailerClickListener {
         void onTrailerClick(Trailer trailer);
     }
 
